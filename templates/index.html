@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Car Price Prediction</h1>
+        </div>
+        <div class="card_body">
+            
+            <form action="/predict" method="post" accept-charset="utf-8">
+                <!-- Company Dropdown -->
+                <label for="company">Company:</label>
+                <select name="company" id="company" required="1" onchange="load.car_models(this.id)">
+                    {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+
+                <!-- Car Model Dropdown -->
+                <label for="car_model">Car Model Name:</label>
+                <select name="car_model" id="car_model" required="1">
+                    {% for car in car_models %}
+                        <option value="{{ car }}">{{ car }}</option>
+                    {% endfor %}
+                </select>
+
+                <!-- Year Dropdown -->
+                <label for="year">Year:</label>
+                <select name="year" id="year" required="1">
+                    {% for y in year %}
+                        <option value="{{ y }}">{{ y }}</option>
+                    {% endfor %}
+                </select>
+
+                <!-- Kms Driven Input -->
+                <label for="kms_driven">Kms Driven:</label>
+                <input type="text" name="kms_driven" id="kms_driven" required="1">
+                
+                <!-- Fuel Type Dropdown -->
+                <label for="fuel_type">Fuel Type:</label>
+                <select name="fuel_type" id="fuel_type" required="1">
+                    {% for fuel in fuel_type %}
+                        <option value="{{ fuel }}">{{ fuel }}</option>
+                    {% endfor %}
+                </select>
+                
+                <input type="submit" value="Predict Price">
+            </form>
+            
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
