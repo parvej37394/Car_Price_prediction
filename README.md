@@ -1,4 +1,4 @@
------------## Car Price Predictor
+----------- ## Car Price Predictor
 
 An end-to-end Machine Learning web application built with **Flask**, **Pandas**, and **Scikit-learn** to estimate the selling price of used cars based on user inputs such as company, model, purchase year, kilometers driven, and fuel type.
 
@@ -13,7 +13,7 @@ An end-to-end Machine Learning web application built with **Flask**, **Pandas**,
 
 ---
 
-------- Project Structure------------------------
+## ------- Project Structure------------------------
 
 ```text
 ├── templates/
